@@ -14,14 +14,18 @@ inputs:
     description: file path of requirements.txt file
     required: False
     default: ''
-  exe_path:
-    description: file path where executable will be saved
-    required: False
-    default: './dist'
   python_ver:
     description: specific python version
     required: False
     default: '3.10'
+  exe_path:
+    description: file path where executable will be saved
+    required: False
+    default: './dist'
+  upload_exe_with_name:
+    description: Name of exe to be uploaded, if passed
+    required: False
+    default: ''
 
 
 
@@ -62,3 +66,10 @@ runs:
         pyinstaller --clean -y --dist ${{ inputs.exe_path }} "${{ inputs.spec }}"
         echo "✔️ Executable created successfully at '${{ inputs.exe_path }}'" >> $GITHUB_STEP_SUMMARY
       shell: bash
+    
+    - name: Uploading executable
+      if: inputs.upload_exe_with_name != ''
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.upload_exe_with_name }}
+        path: ${{ inputs.exe_path }}
