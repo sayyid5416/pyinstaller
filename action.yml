@@ -64,7 +64,7 @@ runs:
     - name: Creating the executable
       run: |
         pyinstaller --clean -y --dist ${{ inputs.exe_path }} "${{ inputs.spec }}"
-        echo "✔️ Executable created successfully at '${{ inputs.exe_path }}'" >> $GITHUB_STEP_SUMMARY
+        echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
       shell: bash
     
     - name: Uploading executable
@@ -73,3 +73,7 @@ runs:
       with:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
+    
+    - name: (workaround) show upload status
+      if: inputs.upload_exe_with_name != ''
+      run: echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
