@@ -77,3 +77,4 @@ runs:
     - name: (workaround) show upload status
       if: inputs.upload_exe_with_name != ''
       run: echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
+      shell: bash
