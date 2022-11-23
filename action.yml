@@ -1,0 +1,62 @@
+name: PyInstaller
+description: GitHub Action to package python scripts into executables
+branding: 
+  icon: box
+  color: blue
+
+
+inputs:
+  spec:
+    description: file path of .spec file
+    required: true
+    default: ''
+  requirements:
+    description: file path of requirements.txt file
+    required: False
+    default: ''
+  exe_path:
+    description: file path where executable will be saved
+    required: False
+    default: './dist'
+  python_ver:
+    description: specific python version
+    required: False
+    default: '3.10'
+
+
+
+runs:
+  using: 'composite'
+  steps:
+
+    - name: Checks for required inputs
+      if: inputs.spec == '' || !endsWith(inputs.spec, '.spec')
+      shell: bash
+      run: |
+        echo "::error::Missing or Wrong 'spec' in inputs" 
+        exit 1
+
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python_ver }}
+    
+    - name: Installing/Upgrading python dev tools
+      run: python -m pip install pip wheel setuptools
+      shell: bash
+    
+    - name: Install dependencies
+      if: inputs.requirements != ''
+      run: python -m pip install -r "${{ inputs.requirements }}"
+      shell: bash
+
+    - name: Install pyinstaller
+      run: pip install pyinstaller
+      shell: bash
+    
+    - name: Creating the executable
+      run: pyinstaller --clean -y --dist ${{ inputs.exe_path }} "${{ inputs.spec }}"
+      shell: bash
