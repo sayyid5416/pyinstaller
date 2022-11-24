@@ -6,6 +6,7 @@ This action packages the python source code into executables using [pyinstaller]
   - Use inputs to configure this action
 
 <br>
+
 # Pre-requisites
 
   <details>
@@ -20,6 +21,7 @@ This action packages the python source code into executables using [pyinstaller]
 
 
 <br>
+
 # Inputs
 
   ### Required inputs
@@ -34,6 +36,7 @@ This action packages the python source code into executables using [pyinstaller]
 
 
 <br>
+
 # Outputs
   - `executable_path`: Path where generated executable files are stored
   - `is_uploaded`: Returns true, if executable was uploaded as artifact successfully
