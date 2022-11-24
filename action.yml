@@ -1,7 +1,7 @@
 name: PyInstaller
 description: GitHub Action to package python scripts into executables
 branding: 
-  icon: box
+  icon: package
   color: blue
 
 
@@ -26,6 +26,14 @@ inputs:
     description: Name of exe to be uploaded, if passed
     required: False
     default: ''
+
+outputs:
+  executable_path:
+    description: path where generated executable files are stored
+    value: ${{ inputs.exe_path }}
+  is_uploaded:
+    description: true/<anything>, if packaged executable is uploaded
+    value: ${{ steps.exe_uploading.uploaded }}
 
 
 
@@ -74,7 +82,10 @@ runs:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
     
-    - name: (workaround) show upload status
+    - name: Uploading executable (Part-2)
+      id: exe_uploading
       if: inputs.upload_exe_with_name != ''
-      run: echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
+      run: |
+        echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
+        echo "uploaded='true'" >> $GITHUB_OUTPUTS
       shell: bash
