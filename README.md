@@ -34,7 +34,7 @@ This action packages the python source code into executables using [pyinstaller]
   - `python_ver`: Specific python version you want to use _(default: 3.10)_
   - `requirements`: Path of your requirements.txt file
   - `exe_path`: Path where executable will be saved
-  - `upload_exe_with_name`: Executable with this name will be uploaded _(If passed)_, as artifact in the workflow
+  - `upload_exe_with_name`: If passed, An executable with this name will be uploaded _(as artifact)_ in the workflow
 
 
 <br>
