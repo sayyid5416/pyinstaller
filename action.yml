@@ -1,7 +1,7 @@
 name: Versatile PyInstaller
 description: GitHub Action to package python scripts into executables
 branding: 
-  icon: package
+  icon: hard-drive
   color: blue
 
 
