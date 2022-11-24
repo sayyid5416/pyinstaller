@@ -1,10 +1,11 @@
+Available usable tags: `@main`
+
 # PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
   - Use this action in your workflows to **create** & **upload** executables directly to GitHub
-  - Current usable tags available: `@main`
-  - Use inputs to confiure this action
+  - Use inputs to configure this action
 
-
+<br>
 # Pre-requisites
 
   <details>
@@ -18,7 +19,7 @@ This action packages the python source code into executables using [pyinstaller]
   </details>
 
 
-
+<br>
 # Inputs
 
   ### Required inputs
@@ -32,7 +33,7 @@ This action packages the python source code into executables using [pyinstaller]
     - `upload_exe_with_name`: Executable with this name will be uploaded _(If passed)_, as artifact in the workflow
 
 
-
+<br>
 # Outputs
   - `executable_path`: Path where generated executable files are stored
   - `is_uploaded`: Returns true, if executable was uploaded as artifact successfully
