@@ -1,4 +1,4 @@
-Available usable tags: `@main`
+Available usable tags: `@main`, `@v1`
 
 # PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
