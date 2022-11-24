@@ -1,9 +1,10 @@
-Available usable tags: `@main`, `@v1`
+Available usable tags: `@main`, `@v1.0`
 
 # PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
   - Use this action in your workflows to **create** & **upload** executables directly to GitHub
-  - Use inputs to configure this action
+  - Use [inputs](#inputs) to configure this action
+  - Use [outputs](#outputs) to get information from this action
 
 
 <br>
