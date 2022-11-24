@@ -41,8 +41,8 @@ This action packages the python source code into executables using [pyinstaller]
 
 
 # Outputs
-  - `executable_path`: Path where generated executable files are stored
-  - `is_uploaded`: Returns true, if executable was uploaded as artifact successfully
+  - `executable_path`: Path where generated executable files are stored on the runner
+  - `is_uploaded`: Returns true, if executable was uploaded _(as artifact)_ successfully
 
 
 <br>
