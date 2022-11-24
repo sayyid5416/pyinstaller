@@ -1,4 +1,4 @@
-# pyinstaller
+# PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
   - Use this action in your workflows to **create** & **upload** executables directly to GitHub
   - Current usable tags available: `@main`
