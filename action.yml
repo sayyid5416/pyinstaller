@@ -13,19 +13,15 @@ inputs:
     default: ''
   requirements:
     description: file path of requirements.txt file
-    required: False
     default: ''
   python_ver:
     description: specific python version
-    required: False
     default: '3.10'
   exe_path:
     description: file path where executable will be saved
-    required: False
     default: './dist'
   upload_exe_with_name:
     description: Name of exe to be uploaded, if passed
-    required: False
     default: ''
 
 outputs:
