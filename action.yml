@@ -88,5 +88,5 @@ runs:
       if: inputs.upload_exe_with_name != ''
       run: |
         echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
-        echo "uploaded='true'" >> $GITHUB_OUTPUTS
+        echo "uploaded='true'" >> $GITHUB_OUTPUT
       shell: bash
