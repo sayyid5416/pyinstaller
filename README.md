@@ -2,7 +2,8 @@ Available usable tags: `@main`, `@v1.0`
 
 # PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
-  - Use this action in your workflows to **create** & **upload** executables directly to GitHub
+  - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_
+  - Executable will be based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow _(see [examples](#examples))_
   - Use [inputs](#inputs) to configure this action
   - Use [outputs](#outputs) to get information from this action
 
@@ -49,14 +50,18 @@ This action packages the python source code into executables using [pyinstaller]
 <br>
 
 
-# Example
+# Examples
 
 ```bash
-steps:
-  - name: Create Executable
-    uses: sayyid5416/pyinstaller@main
-    with:
-      python_ver: '3.6'
-      spec: 'src/build.spec'
-      requirements: 'src/requirements.txt'
+jobs:
+build-job:
+  runs-on: <windows-latest / ubuntu-latest / ..... and so on>
+  steps:
+    - name: Create Executable
+      uses: sayyid5416/pyinstaller@main
+      with:
+        python_ver: '3.6'
+        spec: 'src/build.spec'
+        requirements: 'src/requirements.txt'
+        upload_exe_with_name: 'My executable'
 ```
