@@ -1,4 +1,6 @@
-Available usable tags: `@main`, `@v1.0`
+Check all available usable tags [here](../../tags)
+<br>
+You can also use any major tags like `@v1` for any `@v1.*.*`
 
 # PyInstaller
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
