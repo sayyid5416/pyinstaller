@@ -56,14 +56,14 @@ This action packages the python source code into executables using [pyinstaller]
 
 ```bash
 jobs:
-build-job:
-  runs-on: <windows-latest / ubuntu-latest / ..... and so on>
-  steps:
-    - name: Create Executable
-      uses: sayyid5416/pyinstaller@main
-      with:
-        python_ver: '3.6'
-        spec: 'src/build.spec'
-        requirements: 'src/requirements.txt'
-        upload_exe_with_name: 'My executable'
+  build-job:
+    runs-on: <windows-latest / ubuntu-latest / ..... and so on>
+    steps:
+      - name: Create Executable
+        uses: sayyid5416/pyinstaller@v1
+        with:
+          python_ver: '3.6'
+          spec: 'src/build.spec'
+          requirements: 'src/requirements.txt'
+          upload_exe_with_name: 'My executable'
 ```
