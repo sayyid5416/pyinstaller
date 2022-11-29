@@ -3,7 +3,7 @@ author: '@sayyid5416'
 description: GitHub Action to package python scripts into executables
 branding: 
   icon: hard-drive
-  color: blue
+  color: yellow
 
 
 inputs:
