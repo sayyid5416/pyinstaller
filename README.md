@@ -6,8 +6,17 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
   - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_
   - Executable will be based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow _(see [examples](#examples))_
-  - Use [inputs](#inputs) to configure this action
-  - Use [outputs](#outputs) to get information from this action
+  - Use [inputs](#inputs--outputs) to configure this action
+  - Use [outputs](#inputs--outputs) to get information from this action
+
+
+<br>
+
+
+# Inputs & Outputs
+  
+  - Check all required and optional **inputs** [here](../../blob/2e2ff40364081da397204296801fb833d930eebe/action.yml#L9-L25)
+  - Check all required and optional **outputs** [here](../../blob/2e2ff40364081da397204296801fb833d930eebe/action.yml#L9-L25)
 
 
 <br>
@@ -29,35 +38,12 @@ This action packages the python source code into executables using [pyinstaller]
 <br>
 
 
-# Inputs
-
-  ### Required inputs
-  - `spec`: Path of your `.spec` file
-
-  ### Optional inputs
-  - `python_ver`: Specific python version you want to use _(default: 3.10)_
-  - `requirements`: Path of your requirements.txt file
-  - `exe_path`: Path where executable will be saved on the runner
-  - `upload_exe_with_name`: If passed, An executable with this name will be uploaded _(as artifact)_ in the workflow
-
-
-<br>
-
-
-# Outputs
-  - `executable_path`: Path where generated executable files are stored on the runner
-  - `is_uploaded`: Returns true, if executable was uploaded _(as artifact)_ successfully
-
-
-<br>
-
-
 # Examples
 
 ```bash
 jobs:
-  build-job:
-    runs-on: <windows-latest / ubuntu-latest / ..... and so on>
+  pyinstaller-build:
+    runs-on: <windows-latest / ubuntu-latest / ..... etc>
     steps:
       - name: Create Executable
         uses: sayyid5416/pyinstaller@v1

@@ -8,28 +8,28 @@ branding:
 
 inputs:
   spec:
-    description: file path of .spec file
+    description: path of your .spec file
     required: true
     default: ''
   requirements:
-    description: file path of requirements.txt file
+    description: path of your requirements.txt file
     default: ''
   python_ver:
-    description: specific python version
+    description: specific python version you want to use
     default: '3.10'
   exe_path:
-    description: file path where executable will be saved
+    description: path where generated executable will be saved, on runner-os
     default: './dist'
   upload_exe_with_name:
-    description: Name of exe to be uploaded, if passed
+    description: If passed, executable will be uploaded with this name as artifact. Else, artifact won't be uploaded.
     default: ''
 
 outputs:
   executable_path:
-    description: path where generated executable files are stored
+    description: path on runner-os, where generated executable files are stored
     value: ${{ inputs.exe_path }}
   is_uploaded:
-    description: true/<anything>, if packaged executable is uploaded
+    description: true, if packaged executable has been uploaded as artifact
     value: ${{ steps.exe_uploading.outputs.uploaded }}
 
 
