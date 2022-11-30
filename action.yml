@@ -38,11 +38,20 @@ runs:
   using: 'composite'
   steps:
 
-    - name: Checks for required inputs
-      if: inputs.spec == '' || !endsWith(inputs.spec, '.spec')
+    - name: Checks - if required inputs missing
+      if: inputs.spec == ''
       shell: bash
       run: |
-        echo "::error::Missing or Wrong 'spec' in inputs" 
+        echo "::error title=Input-Error::\
+          Required input missing: 'spec'. Supported types: '.spec' "
+        exit 1
+
+    - name: Checks - if provided inputs are unsupported
+      if: ${{ !endsWith(inputs.spec, '.spec') }}
+      shell: bash
+      run: |
+        echo "::error title=Input-Error::\
+          Unsupported input 'spec = ${{ inputs.spec }}' was provided. Supported types: '.spec' "
         exit 1
 
     - name: Checkout
