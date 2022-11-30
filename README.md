@@ -14,9 +14,9 @@ This action packages the python source code into executables using [pyinstaller]
 
 
 # Inputs & Outputs
-  
-  - Check all required and optional **inputs** [here](../../blob/d5d8b597edd4a616987b1a182a112de8e0871fb6/action.yml#L9-L25)
-  - Check all required and optional **outputs** [here](../../blob/d5d8b597edd4a616987b1a182a112de8e0871fb6/action.yml#L9-L25)
+
+  - Some **inputs** are **required**, while rest are optional.
+  - Check these inputs and outputs in [action.yml](../../action.yml).
 
 
 <br>
