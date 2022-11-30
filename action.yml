@@ -63,8 +63,8 @@ runs:
         python-version: ${{ inputs.python_ver }}
     
     - name: Installing/Upgrading python dev tools
-      run: python -m pip install pip wheel setuptools
       shell: bash
+      run: python -m pip install pip wheel setuptools
     
     - name: Install dependencies
       if: inputs.requirements != ''
@@ -72,26 +72,44 @@ runs:
       shell: bash
 
     - name: Install pyinstaller
-      run: pip install pyinstaller
       shell: bash
+      run: pip install pyinstaller
     
     - name: Creating the executable
+      shell: bash
       run: |
         pyinstaller --clean -y --dist ${{ inputs.exe_path }} "${{ inputs.spec }}"
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
-      shell: bash
+        echo "  - Python version used: _'${{ inputs.python_ver }}'_" >> $GITHUB_STEP_SUMMARY
     
+    - name: If executable upload not required
+      if: inputs.upload_exe_with_name == ''
+      shell: bash
+      run: |
+        echo "::notice title=No-Upload::\
+          Executable couldn't upload. \
+          Provide input for 'upload_exe_with_name', if you want to upload the executable as artifact."
+
     - name: Uploading executable
+      id: artifact_upload
       if: inputs.upload_exe_with_name != ''
       uses: actions/upload-artifact@v3
       with:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
     
-    - name: Uploading executable (Part-2)
+    - name: If executable upload success
       id: exe_uploading
-      if: inputs.upload_exe_with_name != ''
+      if: steps.artifact_upload.conclusion == 'success'
+      shell: bash
       run: |
         echo "✔️ Executable **_(${{ inputs.upload_exe_with_name }})_** uploaded successfully" >> $GITHUB_STEP_SUMMARY
         echo "uploaded='true'" >> $GITHUB_OUTPUT
+    
+    - name: If executable upload fails
+      if: failure() && steps.artifact_upload.conclusion == 'failure'
       shell: bash
+      run: |
+        echo "::warning title=Failed-Upload::\
+          Executable couldn't upload. \
+          Check available storage at: 'settings > billing > Storage for Actions and Packages'."
