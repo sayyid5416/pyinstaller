@@ -30,7 +30,7 @@ outputs:
     value: ${{ inputs.exe_path }}
   is_uploaded:
     description: true/<anything>, if packaged executable is uploaded
-    value: ${{ steps.exe_uploading.uploaded }}
+    value: ${{ steps.exe_uploading.outputs.uploaded }}
 
 
 
