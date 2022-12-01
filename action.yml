@@ -8,7 +8,9 @@ branding:
 
 inputs:
   spec:
-    description: path of your .spec file
+    description: >
+      path of your .spec file
+        - This file will be used to create executable.
     required: true
     default: ''
   requirements:
@@ -38,7 +40,7 @@ runs:
   using: 'composite'
   steps:
 
-    - name: Checks - if required inputs missing
+    - name: (Check - Missing) required inputs
       if: inputs.spec == ''
       shell: bash
       run: |
@@ -46,7 +48,7 @@ runs:
           Required input missing: 'spec'."
         exit 1
 
-    - name: Checks - if provided inputs are unsupported
+    - name: (Check - Unsupported Input) spec
       if: ${{ !endsWith(inputs.spec, '.spec') }}
       shell: bash
       run: |
@@ -57,35 +59,35 @@ runs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Install python
+    - name: (Install) python
       uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python_ver }}
     
-    - name: Installing/Upgrading python dev tools
+    - name: (Install) python dev tools
       shell: bash
       run: python -m pip install pip wheel setuptools
     
-    - name: Install dependencies
+    - name: (Install) dependencies
       if: inputs.requirements != ''
       run: python -m pip install -r "${{ inputs.requirements }}"
       shell: bash
 
-    - name: Install pyinstaller
+    - name: (Install) pyinstaller
       shell: bash
       run: pip install pyinstaller
     
-    - name: Creating the executable
+    - name: (Create) Executable
       shell: bash
       run: |
         pyinstaller \
           --clean \
-          -y \
+          --noconfirm \
           --dist ${{ inputs.exe_path }} \
           "${{ inputs.spec }}"
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
-        echo "  - Python version used: _'${{ inputs.python_ver }}'_" >> $GITHUB_STEP_SUMMARY
+        echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
     
     - name: If executable upload not required
       if: inputs.upload_exe_with_name == ''
@@ -95,7 +97,7 @@ runs:
           Executable couldn't upload. \
           Provide input for 'upload_exe_with_name', if you want to upload the executable as artifact."
 
-    - name: Uploading executable
+    - name: (Upload) Executable
       id: artifact_upload
       if: inputs.upload_exe_with_name != ''
       uses: actions/upload-artifact@v3
