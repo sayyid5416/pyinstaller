@@ -41,7 +41,7 @@ This action packages the python source code into executables using [pyinstaller]
 
 # Examples
 
-```bash
+```yaml
 jobs:
   pyinstaller-build:
     runs-on: <windows-latest / ubuntu-latest / ..... etc>
