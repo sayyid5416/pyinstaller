@@ -9,8 +9,8 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 # 🔰 PyInstaller
   - This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org).
   - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_.
-  - Use [inputs](#inputs--outputs) to configure this action.
-  - Use [outputs](#inputs--outputs) to get information from this action.
+  - Use [inputs](#-inputs--outputs) to configure this action.
+  - Use [outputs](#-inputs--outputs) to get information from this action.
 
 
 <br>
@@ -20,7 +20,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 ### 💠 Multi-OS support
   - Create executable for different kinds of os like linux, windows, mac etc.
   - Specify OS in `jobs.<job-id>.runs-on=<your-os-name>` in your workflow file.
-  - see [examples](#examples) for more info.
+  - see [examples](#-examples) for more info.
 
 ### 💠 .py and .spec support
   - You can use either `.py` or `.spec` file to create the executable.
