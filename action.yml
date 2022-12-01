@@ -41,30 +41,19 @@ runs:
   using: 'composite'
   steps:
 
-    - name: (Check - Missing) required inputs
-      if: inputs.spec == ''
+    - name: checks
       shell: bash
-      run: |
-        echo "::error title=Input-Error::\
-          Required input missing: 'spec'."
-        exit 1
-
-    - name: (Check - Unsupported Input) spec
-      if: ${{ !endsWith(inputs.spec, '.spec') && !endsWith(inputs.spec, '.py') }}
-      shell: bash
-      run: |
-        echo "::error title=Input-Error::\
-          Unsupported input 'spec = ${{ inputs.spec }}' was provided. Supported types: '.py', '.spec' "
-        exit 1
-
+      run: python "${{ github.action_path }}/src/checks.py"
+      env:
+        spec: ${{ inputs.spec }}
+        upload_exe_with_name: ${{ inputs.upload_exe_with_name }}
+    
     - name: Setting modified outputs
       id: mods
       shell: bash
-      run: |
-        _spec=${{ inputs.spec }}
-        _spec=${_spec%.py}
-        _spec=${_spec%.spec}
-        echo "spec_name=$_spec" >> $GITHUB_OUTPUT
+      run: python "${{ github.action_path }}/src/mods.py"
+      env:
+        spec: ${{ inputs.spec }}
     
     - name: Checkout
       uses: actions/checkout@v3
@@ -98,14 +87,6 @@ runs:
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
         echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
-
-    - name: If executable upload not required
-      if: inputs.upload_exe_with_name == ''
-      shell: bash
-      run: |
-        echo "::notice title=No-Upload::\
-          Executable couldn't upload. \
-          Provide input for 'upload_exe_with_name', if you want to upload the executable as artifact."
 
     - name: (Upload) Executable
       id: artifact_upload
