@@ -3,32 +3,32 @@ Check all available usable tags [here](../../tags)
 You can also use any major tags like `@v1` for any `@v1.*.*`
 
 # PyInstaller
-  - This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
-  - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_
-  - Use [inputs](#inputs--outputs) to configure this action
-  - Use [outputs](#inputs--outputs) to get information from this action
+  - This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org).
+  - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_.
+  - Use [inputs](#inputs--outputs) to configure this action.
+  - Use [outputs](#inputs--outputs) to get information from this action.
 
 
 <br>
 
 
 # Features
-#### Multi-OS support:
+### Multi-OS support
   - Create executable for different kinds of os like linux, windows, mac etc.
-  - based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow 
-  - see [examples](#examples)) for more info
+  - Specify OS in `jobs.<job-id>.runs-on=<your-os-name>` in your workflow .
+  - see [examples](#examples) for more info.
 
-#### .py and .spec support
+### .py and .spec support
   - You can use either `.py` or `.spec` file to create the executable.
   - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
   - Modify your `.spec` file according to your needs.
   
-#### Many python versions
-  - You can specify python version you want to use.
+### Many python versions
+  - You can specify any python version for the executable.
 
-#### Executable uploads
-  - You can also control if generated executable needs to be uploaded as artifact.
-  - If yes, then with what name.
+### Executable uploads
+  - You can control if generated executable needs to be uploaded as artifact.
+  - You can choose a name of your liking.
 
 
 <br>
