@@ -2,44 +2,51 @@ Check all available usable tags [here](../../tags)
 <br>
 You can also use any major tags like `@v1` for any `@v1.*.*`
 
-# PyInstaller
-This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org)
-  - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_
-  - Executable will be based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow _(see [examples](#examples))_
-  - Use [inputs](#inputs--outputs) to configure this action
-  - Use [outputs](#inputs--outputs) to get information from this action
+
+<br>
+
+
+# 🔰 PyInstaller
+  - This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org).
+  - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_.
+  - Use [inputs](#-inputs--outputs) to configure this action.
+  - Use [outputs](#-inputs--outputs) to get information from this action.
 
 
 <br>
 
 
-# Inputs & Outputs
+# 🔰 Features
+### 💠 Multi-OS support
+  - Create executable for different kinds of os like linux, windows, mac etc.
+  - Specify OS in `jobs.<job-id>.runs-on=<your-os-name>` in your workflow file.
+  - see [examples](#-examples) for more info.
+
+### 💠 .py and .spec support
+  - You can use either `.py` or `.spec` file to create the executable.
+  - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
+  - Modify your `.spec` file according to your needs.
+  
+### 💠 Many python versions
+  - You can specify any python version for the executable.
+
+### 💠 Executable uploads
+  - You can control if generated executable needs to be uploaded as artifact.
+  - You can choose a name of your liking.
+
+
+<br>
+
+
+# 🔰 Inputs & Outputs
 
   - Some **inputs** are **required**, while rest are optional. 
-  - Check all inputs [here](/action.yml#L9-L25).
-  - Check all outputs [here](/action.yml#L27-L33).
-
+  - Check all inputs & outputs [here](/action.yml).
 
 <br>
 
 
-# Pre-requisites
-
-  <details>
-  <summary>Generate .spec file</summary>
-
-  - Clone your repository to your PC
-  - Install pyinstaller: `pip install pyinstaller`
-  - Run pyinstaller to generate `.spec` file: `pyinstaller <appname>.py`
-  - Modify `.spec` file according to your needs
-  - Push that `.spec` file to your repo
-  </details>
-
-
-<br>
-
-
-# Examples
+# 🔰 Examples
 
 ```yaml
 jobs:

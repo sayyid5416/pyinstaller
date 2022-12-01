@@ -8,7 +8,10 @@ branding:
 
 inputs:
   spec:
-    description: path of your .spec file
+    description: >
+      path of your '.py' or '.spec' file. 
+        - This file will be used to create executable.
+        - If .py: Generated spec file will also be uploaded as artifact
     required: true
     default: ''
   requirements:
@@ -38,7 +41,7 @@ runs:
   using: 'composite'
   steps:
 
-    - name: Checks - if required inputs missing
+    - name: (Check - Missing) required inputs
       if: inputs.spec == ''
       shell: bash
       run: |
@@ -46,47 +49,56 @@ runs:
           Required input missing: 'spec'."
         exit 1
 
-    - name: Checks - if provided inputs are unsupported
-      if: ${{ !endsWith(inputs.spec, '.spec') }}
+    - name: (Check - Unsupported Input) spec
+      if: ${{ !endsWith(inputs.spec, '.spec') && !endsWith(inputs.spec, '.py') }}
       shell: bash
       run: |
         echo "::error title=Input-Error::\
-          Unsupported input 'spec = ${{ inputs.spec }}' was provided. Supported types: '.spec' "
+          Unsupported input 'spec = ${{ inputs.spec }}' was provided. Supported types: '.py', '.spec' "
         exit 1
 
+    - name: Setting modified outputs
+      id: mods
+      shell: bash
+      run: |
+        _spec=${{ inputs.spec }}
+        _spec=${_spec%.py}
+        _spec=${_spec%.spec}
+        echo "spec_name=$_spec" >> $GITHUB_OUTPUT
+    
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Install python
+    - name: (Install) python
       uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python_ver }}
     
-    - name: Installing/Upgrading python dev tools
+    - name: (Install) python dev tools
       shell: bash
       run: python -m pip install pip wheel setuptools
     
-    - name: Install dependencies
+    - name: (Install) dependencies
       if: inputs.requirements != ''
       run: python -m pip install -r "${{ inputs.requirements }}"
       shell: bash
 
-    - name: Install pyinstaller
+    - name: (Install) pyinstaller
       shell: bash
       run: pip install pyinstaller
     
-    - name: Creating the executable
+    - name: (Create) Executable
       shell: bash
       run: |
         pyinstaller \
           --clean \
-          -y \
+          --noconfirm \
           --dist ${{ inputs.exe_path }} \
           "${{ inputs.spec }}"
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
-        echo "  - Python version used: _'${{ inputs.python_ver }}'_" >> $GITHUB_STEP_SUMMARY
-    
+        echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
+
     - name: If executable upload not required
       if: inputs.upload_exe_with_name == ''
       shell: bash
@@ -95,7 +107,7 @@ runs:
           Executable couldn't upload. \
           Provide input for 'upload_exe_with_name', if you want to upload the executable as artifact."
 
-    - name: Uploading executable
+    - name: (Upload) Executable
       id: artifact_upload
       if: inputs.upload_exe_with_name != ''
       uses: actions/upload-artifact@v3
@@ -103,6 +115,13 @@ runs:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
     
+    - name: (Upload) generated spec file - if .py
+      if: endsWith(inputs.spec, '.py')
+      uses: actions/upload-artifact@v3
+      with:
+        name: Generated spec file
+        path: ${{ steps.mods.outputs.spec_name }}.spec
+
     - name: If executable upload success
       id: exe_uploading
       if: steps.artifact_upload.conclusion == 'success'
