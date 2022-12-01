@@ -23,22 +23,6 @@ This action packages the python source code into executables using [pyinstaller]
 <br>
 
 
-# Pre-requisites
-
-  <details>
-  <summary>Generate .spec file</summary>
-
-  - Clone your repository to your PC
-  - Install pyinstaller: `pip install pyinstaller`
-  - Run pyinstaller to generate `.spec` file: `pyinstaller <appname>.py`
-  - Modify `.spec` file according to your needs
-  - Push that `.spec` file to your repo
-  </details>
-
-
-<br>
-
-
 # Examples
 
 ```yaml
