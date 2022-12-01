@@ -2,7 +2,11 @@ Check all available usable tags [here](../../tags)
 <br>
 You can also use any major tags like `@v1` for any `@v1.*.*`
 
-# PyInstaller
+
+<br>
+
+
+# 🔰 PyInstaller
   - This action packages the python source code into executables using [pyinstaller](https://pyinstaller.org).
   - Use this action in your workflow to **create** & **upload** executables to GitHub _(as artifacts)_.
   - Use [inputs](#inputs--outputs) to configure this action.
@@ -12,21 +16,21 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 <br>
 
 
-# Features
-### Multi-OS support
+# 🔰 Features
+### 💠 Multi-OS support
   - Create executable for different kinds of os like linux, windows, mac etc.
-  - Specify OS in `jobs.<job-id>.runs-on=<your-os-name>` in your workflow .
+  - Specify OS in `jobs.<job-id>.runs-on=<your-os-name>` in your workflow file.
   - see [examples](#examples) for more info.
 
-### .py and .spec support
+### 💠 .py and .spec support
   - You can use either `.py` or `.spec` file to create the executable.
   - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
   - Modify your `.spec` file according to your needs.
   
-### Many python versions
+### 💠 Many python versions
   - You can specify any python version for the executable.
 
-### Executable uploads
+### 💠 Executable uploads
   - You can control if generated executable needs to be uploaded as artifact.
   - You can choose a name of your liking.
 
@@ -34,7 +38,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 <br>
 
 
-# Inputs & Outputs
+# 🔰 Inputs & Outputs
 
   - Some **inputs** are **required**, while rest are optional. 
   - Check all inputs & outputs [here](/action.yml).
@@ -42,7 +46,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 <br>
 
 
-# Examples
+# 🔰 Examples
 
 ```yaml
 jobs:
