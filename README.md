@@ -13,15 +13,22 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
 
 # Features
+#### Multi-OS support:
   - Create executable for different kinds of os like linux, windows, mac etc.
-    - based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow _(see [examples](#examples))_
-  - You can either use `.py` or `.spec` file to create the executable.
-    - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
-  - Modify your `.spec` file according to your needs.
-  - You can also specify the python version you want to use for your app.
-  - You can also control if generated executable needs to be uploaded as artifact.
-    - If yes, then with what name.
+  - based on `jobs.<job-id>.runs-on=<your-os-name>` you uses in your workflow 
+  - see [examples](#examples)) for more info
 
+#### .py and .spec support
+  - You can use either `.py` or `.spec` file to create the executable.
+  - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
+  - Modify your `.spec` file according to your needs.
+  
+#### Many python versions
+  - You can specify python version you want to use.
+
+#### Executable uploads
+  - You can also control if generated executable needs to be uploaded as artifact.
+  - If yes, then with what name.
 
 
 <br>
