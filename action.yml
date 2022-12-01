@@ -57,6 +57,15 @@ runs:
           Unsupported input 'spec = ${{ inputs.spec }}' was provided. Supported types: '.py', '.spec' "
         exit 1
 
+    - name: Setting modified outputs
+      id: mods
+      shell: bash
+      run: |
+        _spec=${{ inputs.spec }}
+        _spec=${_spec%.py}
+        _spec=${_spec%.spec}
+        echo "spec_name=$_spec" >> $GITHUB_OUTPUT
+    
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -89,7 +98,7 @@ runs:
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
         echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
-    
+
     - name: If executable upload not required
       if: inputs.upload_exe_with_name == ''
       shell: bash
@@ -106,6 +115,13 @@ runs:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
     
+    - name: (Upload) generated spec file - if .py
+      if: endsWith(inputs.spec, '.py')
+      uses: actions/upload-artifact@v3
+      with:
+        name: Generated spec file
+        path: ${{ steps.mods.outputs.spec_name }}.spec
+
     - name: If executable upload success
       id: exe_uploading
       if: steps.artifact_upload.conclusion == 'success'
