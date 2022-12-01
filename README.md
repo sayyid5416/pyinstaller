@@ -20,7 +20,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Modify your `.spec` file according to your needs.
   - You can also specify the python version you want to use for your app.
   - You can also control if generated executable needs to be uploaded as artifact.
-    - If yes, then with what name
+    - If yes, then with what name.
 
 
 
