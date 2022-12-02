@@ -6,6 +6,9 @@ from actions import *
 spec = env('spec')
 
 
+# Minor parsing
+specName, specExt = os.path.splitext(spec)                            # spec-name-with-path & spec-extension 
+
 
 
 
@@ -40,7 +43,5 @@ specOptions = [
 
 
 ## ---------------------- Spec Name ---------------------- ##
-
-# spec file name without extension
-specName = spec.removesuffix('.py').removesuffix('.spec')
-set_output('spec_name', specName)
+_specName = str(specName)
+set_output('spec_name', _specName)
