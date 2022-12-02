@@ -79,26 +79,14 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
   - Options supported for `.py` type `spec`:
 
-    | name    | Bro     |
-    | name    | Bro     |
-    | name    | Bro     |
+  |Options|Options|Options|
+  |:-----:|:-----:|:-----:|
+  | `--uac-admin`     | `--onedir`,                         `-D` | `--upx-dir <UPX_DIR>`
+  | `--uac-uiaccess`  | `--onefile`,                        `-F` | `--key <KEY>`
+  | `--noupx`         | `--ascii`,                          `-a` | `--upx-exclude <FILE>`
+  |                   | `--console`,    `--nowindowed`,     `-c` | `--name <NAME>`,                    `-n <NAME>`
+  |                   | `--windowed`,   `--noconsole`,      `-w` | `--icon <FILEICON>`,                `-i <FILEICON>`
 
-    - `--uac-admin`
-    - `--uac-uiaccess`
-    - `--noupx`
-    
-    - `--onedir`,                         `-D`
-    - `--onefile`,                        `-F`
-    - `--ascii`,                          `-a`
-    - `--console`,    `--nowindowed`,     `-c`
-    - `--windowed`,   `--noconsole`,      `-w`
-    
-    - `--upx-dir <UPX_DIR>`
-    - `--key <KEY>`
-    - `--upx-exclude <FILE>`
-
-    - `--name <NAME>`,                    `-n <NAME>`
-    - `--icon <FILEICON>`,                `-i <FILEICON>`
   - Options supported for `.spec` type `spec`:
     - `--ascii`,                          `-a`
     - `--upx-dir <UPX_DIR>`
