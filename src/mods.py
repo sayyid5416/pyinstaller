@@ -56,6 +56,10 @@ for option in providedOptions:
 
 ## Supported options -> OUTPUT
 if supported_options:
+    set_annotation(
+        f"Options setted for '{specExt}' spec type: {', '.join(supported_options)}",
+        'Pyinstaller Options'
+    )
     set_output('supported_options', ' '.join(supported_options))
 
 
