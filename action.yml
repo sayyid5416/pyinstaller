@@ -90,6 +90,7 @@ runs:
           --clean \
           --noconfirm \
           --dist ${{ inputs.exe_path }} \
+          ${{ steps.mods.outputs.supported_options }} \
           "${{ inputs.spec }}"
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY

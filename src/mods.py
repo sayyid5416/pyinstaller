@@ -54,6 +54,11 @@ for option in providedOptions:
     else:
         unsupported_options.append(option)
 
+## Supported options -> OUTPUT
+if supported_options:
+    set_output('supported_options', ' '.join(supported_options))
+
+
 
 
 
