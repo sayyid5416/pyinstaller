@@ -28,9 +28,9 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Modify your `.spec` file according to your needs.
 
 ### 💠 Pyinstaller options
-  - You can specify many pyinstaller options in `inputs.options: <comma-seperated-options-here>`
-  - `.py` and `.spec` both supports different kind of options
-  - Check list of all [supported options here](#-inputs--outputs) 
+  - You can specify many pyinstaller options in `inputs.options: <comma-seperated-options-here>`.
+  - `.py` and `.spec` both supports different kind of options.
+  - Check list of all [supported options here](#-inputs--outputs).
 
 ### 💠 Python versions
   - You can specify any python version for the executable.
@@ -47,10 +47,10 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
   - Some **inputs** are **required**, while rest are optional. 
   - Check all inputs & outputs [here](/action.yml).
-  - Some important options are also available:
-    - Provide these options in inputs as `options: -D, -a, --noconsole` etc
-    - Read about them [here](https://pyinstaller.org/en/stable/usage.html#options)
-    - Options to work with `spec=<name>.py` file:
+  - Supported options for `inputs.options`:
+    - Ex: `options: -D, -a, --noconsole, --uac-admin`
+    - Read more about them [here](https://pyinstaller.org/en/stable/usage.html#options)
+    - Options supported for `.py` type `spec`:
       - `--uac-admin`
       - `--uac-uiaccess`
       - `--noupx`
@@ -67,9 +67,10 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
       - `--name <NAME>`,                    `-n <NAME>`
       - `--icon <FILEICON>`,                `-i <FILEICON>`
-    - Options to work with `spec=<name>.spec` file:
+    - Options supported for `.spec` type `spec`:
       - `--ascii`,                          `-a`
       - `--upx-dir <UPX_DIR>`
+
 
 <br>
 
