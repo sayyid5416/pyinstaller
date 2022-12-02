@@ -55,12 +55,15 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Check detailed info about available inputs & outputs [here](/action.yml).
 
 ### 💠 Available Inputs
-  - `spec`
-  - `requirements`
-  - `options`
-  - `python_ver`
-  - `exe_path`
-  - `upload_exe_with_name`
+
+  | Input                 | Default value | Description |
+  |-----------------------|---------------|-------------|
+  | `spec`  _(required)_  | ''            | path of your '.py' or '.spec' file
+  | `requirements`        | ''            | path of your requirements.txt file
+  | `options`             | ''            | Options to set for pyinstaller command
+  | `python_ver`          | '3.10'        | specific python version you want to use
+  | `exe_path`            | './dist'      | path where generated executable will be saved, on runner-os
+  | `upload_exe_with_name`| ''            | If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
 
 ### 💠 Available Outputs
   - `executable_path`
