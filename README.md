@@ -56,15 +56,15 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
       - `--console`,    `--nowindowed`,     `-c`,
       - `--windowed`,   `--noconsole`,      `-w`,
       
-      - `--upx-dir UPX_DIR`,
-      - `--key KEY`,
-      - `--upx-exclude FILE`,
+      - `--upx-dir <UPX_DIR>`,
+      - `--key <KEY>`,
+      - `--upx-exclude <FILE>`,
 
-      - `--name NAME`,                      `-n NAME`,
-      - `--icon FILEICON`,                  `-i FILEICON`,
+      - `--name <NAME>`,                    `-n <NAME>`,
+      - `--icon <FILEICON>`,                `-i <FILEICON>`,
     - Options to work with `spec=<name>.spec` file:
       - `--ascii`,                          `-a`,
-      - `--upx-dir UPX_DIR`,
+      - `--upx-dir <UPX_DIR>`,
 
 <br>
 

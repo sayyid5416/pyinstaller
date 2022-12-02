@@ -27,16 +27,16 @@ pyOptions = [
     '--console',    '--nowindowed',     '-c',
     '--windowed',   '--noconsole',      '-w',
     
-    '--upx-dir UPX_DIR',
-    '--key KEY',
-    '--upx-exclude FILE',
+    '--key <KEY>',
+    '--upx-dir <UPX_DIR>',
+    '--upx-exclude <FILE>',
 
-    '--name NAME',                      '-n NAME',
-    '--icon FILEICON',                  '-i FILEICON',
+    '--name <NAME>',                    '-n <NAME>',
+    '--icon <FILEICON>',                '-i <FILEICON>',
 ]
 specOptions = [
     '--ascii',                          '-a',
-    '--upx-dir UPX_DIR',
+    '--upx-dir <UPX_DIR>',
 ]
 
 # Keys of Supported options (w/o values)
