@@ -65,7 +65,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `exe_path`            | ./dist   | Path on runner-os, where generated executable files are stored
   | `upload_exe_with_name`| -        | If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
 
-  **Note:** `-` in default value = empty string
+  **\*** `-` in default value = empty string
 
 ### 💠 Available Outputs
 
@@ -78,6 +78,11 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Usage: `inputs.options: <option-1>, <option-2>, ...`
   - Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
   - Options supported for `.py` type `spec`:
+
+    | name    | Bro     |
+    | name    | Bro     |
+    | name    | Bro     |
+
     - `--uac-admin`
     - `--uac-uiaccess`
     - `--noupx`
