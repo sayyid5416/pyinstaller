@@ -77,7 +77,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 ### 💠 Supported Pyinstaller options
   - Options supported for `.py` type `spec`:
 
-    |Options            |Options                                  |Options
+    | Options           | Options                                 | Options
     |:-----------------:|:---------------------------------------:|:-----:
     | `--uac-admin`     | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`
     | `--uac-uiaccess`  | `--onefile`,                       `-F` | `--key <KEY>`
@@ -87,11 +87,10 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
     
   - Options supported for `.spec` type `spec`:
 
-    |Options            |Options
+    | Options           | Options
     |:-----------------:|:-----:
     | `--ascii`,  `-a`  | `--upx-dir <UPX_DIR>`
 
-- Usage: `inputs.options: <option-1>, <option-2>, ...`
 - Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
 
 
@@ -112,4 +111,5 @@ jobs:
           spec: 'src/build.spec'
           requirements: 'src/requirements.txt'
           upload_exe_with_name: 'My executable'
+          options: --onefile, --name "My App", --windowed, 
 ```
