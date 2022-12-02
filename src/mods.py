@@ -81,7 +81,7 @@ def get_option_value(option:str):
         
         key, value, *_ = iList
         if key == option:
-            return value
+            return value.removeprefix('"').removeprefix("'").removesuffix('"').removesuffix("'")
 
 
 
