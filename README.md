@@ -74,7 +74,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `executable_path`     | Path on runner-os, where generated executable files are stored
   | `is_uploaded`         | `true`, if packaged executable has been uploaded as artifact
 
-### 💠 Supported Pyinstaller options
+### 💠 Supported [Pyinstaller options](https://pyinstaller.org/en/stable/usage.html#options)
   - Options supported for `.py` type `spec`:
 
     | Options           | Options                                 | Options
@@ -90,8 +90,6 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
     | Options           | Options
     |:-----------------:|:-----:
     | `--ascii`,  `-a`  | `--upx-dir <UPX_DIR>`
-
-- Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
 
 
 <br>
