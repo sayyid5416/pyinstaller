@@ -60,6 +60,7 @@ runs:
       run: python "${{ github.action_path }}/src/mods.py"
       env:
         spec: ${{ inputs.spec }}
+        options: ${{ inputs.options }}
     
     - name: Checkout
       uses: actions/checkout@v3
