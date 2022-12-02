@@ -54,29 +54,30 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
   - Some **inputs** are **required**, while rest are optional. 
   - Check all inputs & outputs [here](/action.yml).
-  - Supported options for `inputs.options`:
-    - Ex: `options: -D, -a, --noconsole, --uac-admin`
-    - Read more about them [here](https://pyinstaller.org/en/stable/usage.html#options)
-    - Options supported for `.py` type `spec`:
-      - `--uac-admin`
-      - `--uac-uiaccess`
-      - `--noupx`
-      
-      - `--onedir`,                         `-D`
-      - `--onefile`,                        `-F`
-      - `--ascii`,                          `-a`
-      - `--console`,    `--nowindowed`,     `-c`
-      - `--windowed`,   `--noconsole`,      `-w`
-      
-      - `--upx-dir <UPX_DIR>`
-      - `--key <KEY>`
-      - `--upx-exclude <FILE>`
 
-      - `--name <NAME>`,                    `-n <NAME>`
-      - `--icon <FILEICON>`,                `-i <FILEICON>`
-    - Options supported for `.spec` type `spec`:
-      - `--ascii`,                          `-a`
-      - `--upx-dir <UPX_DIR>`
+### 💠 Supported Pyinstaller options
+  - Usage: `inputs.options: <option-1>, <option-2>, ...`
+  - Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
+  - Options supported for `.py` type `spec`:
+    - `--uac-admin`
+    - `--uac-uiaccess`
+    - `--noupx`
+    
+    - `--onedir`,                         `-D`
+    - `--onefile`,                        `-F`
+    - `--ascii`,                          `-a`
+    - `--console`,    `--nowindowed`,     `-c`
+    - `--windowed`,   `--noconsole`,      `-w`
+    
+    - `--upx-dir <UPX_DIR>`
+    - `--key <KEY>`
+    - `--upx-exclude <FILE>`
+
+    - `--name <NAME>`,                    `-n <NAME>`
+    - `--icon <FILEICON>`,                `-i <FILEICON>`
+  - Options supported for `.spec` type `spec`:
+    - `--ascii`,                          `-a`
+    - `--upx-dir <UPX_DIR>`
 
 
 <br>
