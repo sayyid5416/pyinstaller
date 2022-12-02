@@ -35,7 +35,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 ### 💠 Pyinstaller options
   - Specify pyinstaller options in `inputs.options: <comma-seperated-options-here>`.
   - `.py` and `.spec` both supports different kind of options.
-  - Check list of all [supported options here](#-inputs--outputs).
+  - Check list of all [supported options here](#-supported-pyinstaller-options).
 
 ### 💠 Python versions
   - You can specify any python version for the executable.
