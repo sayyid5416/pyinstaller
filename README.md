@@ -78,15 +78,14 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Usage: `inputs.options: <option-1>, <option-2>, ...`
   - Read more about [pyinstaller options here](https://pyinstaller.org/en/stable/usage.html#options)
   - Options supported for `.py` type `spec`:
-
-  |Options|Options|Options|
-  |:-----:|:-----:|:-----:|
-  | `--uac-admin`     | `--onedir`,                         `-D` | `--upx-dir <UPX_DIR>`
-  | `--uac-uiaccess`  | `--onefile`,                        `-F` | `--key <KEY>`
-  | `--noupx`         | `--ascii`,                          `-a` | `--upx-exclude <FILE>`
-  |                   | `--console`,    `--nowindowed`,     `-c` | `--name <NAME>`,                    `-n <NAME>`
-  |                   | `--windowed`,   `--noconsole`,      `-w` | `--icon <FILEICON>`,                `-i <FILEICON>`
-
+    |Options|Options|Options|
+    |:-----:|:-----:|:-----:|
+    | `--uac-admin`     | `--onedir`,                         `-D` | `--upx-dir <UPX_DIR>`
+    | `--uac-uiaccess`  | `--onefile`,                        `-F` | `--key <KEY>`
+    | `--noupx`         | `--ascii`,                          `-a` | `--upx-exclude <FILE>`
+    |                   | `--console`,    `--nowindowed`,     `-c` | `--name <NAME>`,                    `-n <NAME>`
+    |                   | `--windowed`,   `--noconsole`,      `-w` | `--icon <FILEICON>`,                `-i <FILEICON>`
+    
   - Options supported for `.spec` type `spec`:
     - `--ascii`,                          `-a`
     - `--upx-dir <UPX_DIR>`
