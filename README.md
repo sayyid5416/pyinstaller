@@ -52,7 +52,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
 # 🔰 Inputs & Outputs
   - Some **inputs** are **required**, while rest are optional. 
-  - Check detailed info about available inputs & outputs [here](/action.yml).
+  - Check detailed info about these inputs & outputs [here](/action.yml).
 
 ### 💠 Available Inputs
 
