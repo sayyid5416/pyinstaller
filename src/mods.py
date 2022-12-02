@@ -8,8 +8,8 @@ options = env('options')
 
 
 # Minor parsing
-specName, specExt = os.path.splitext(spec)                                  # spec-name-with-path & spec-extension 
-providedOptions = [i.strip() for i in options.split(',') if i != '']        # list of provided options
+specName, specExt = os.path.splitext(spec)                                          # spec-name-with-path & spec-extension 
+providedOptions = [i.strip() for i in options.split(',') if i.strip() != '']        # list of provided options
 
 
 
