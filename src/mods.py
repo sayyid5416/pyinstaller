@@ -14,6 +14,7 @@ specName, specExt = os.path.splitext(spec)                            # spec-nam
 
 
 ## ---------------------- Pyinstaller Options ---------------------- ##
+# Supported options
 pyOptions = [
     '--uac-admin',
     '--uac-uiaccess',
@@ -37,6 +38,9 @@ specOptions = [
     '--upx-dir UPX_DIR',
 ]
 
+# Supported options w/o values
+pyOptions_keys = [i.split()[0] for i in pyOptions]
+specOptions_keys = [i.split()[0] for i in specOptions]
 
 
 
