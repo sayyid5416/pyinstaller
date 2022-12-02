@@ -75,22 +75,15 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `is_uploaded`         | `true`, if packaged executable has been uploaded as artifact
 
 ### 💠 Supported [Pyinstaller options](https://pyinstaller.org/en/stable/usage.html#options)
-  - Options supported for `.py` type `spec`:
 
-    | Options           | Options                                 | Options
-    |:-----------------:|:---------------------------------------:|:-----:
-    | `--uac-admin`     | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`
-    | `--uac-uiaccess`  | `--onefile`,                       `-F` | `--key <KEY>`
-    | `--noupx`         | `--ascii`,                         `-a` | `--upx-exclude <FILE>`
-    |                   | `--console`,    `--nowindowed`,    `-c` | `--name <NAME>`,                    `-n <NAME>`
-    |                   | `--windowed`,   `--noconsole`,     `-w` | `--icon <FILEICON>`,                `-i <FILEICON>`
+  | For `.py`         | For `.py`                               | For `.py`                               | For `.spec`
+  |-------------------|-----------------------------------------|-----------------------------------------|------------
+  | `--uac-admin`     | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`                   | `--ascii`,  `-a`
+  | `--uac-uiaccess`  | `--onefile`,                       `-F` | `--key <KEY>`                           | `--upx-dir <UPX_DIR>`
+  | `--noupx`         | `--ascii`,                         `-a` | `--upx-exclude <FILE>`                  |
+  |                   | `--console`,    `--nowindowed`,    `-c` | `--name <NAME>`,        `-n <NAME>`     |
+  |                   | `--windowed`,   `--noconsole`,     `-w` | `--icon <FILEICON>`,    `-i <FILEICON>` |
     
-  - Options supported for `.spec` type `spec`:
-
-    | Options           | Options
-    |:-----------------:|:-----:
-    | `--ascii`,  `-a`  | `--upx-dir <UPX_DIR>`
-
 
 <br>
 
