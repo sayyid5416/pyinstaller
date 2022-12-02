@@ -55,8 +55,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - Check detailed info about these inputs & outputs [here](/action.yml).
 
 ### 💠 Available Inputs
-
-  | Input                 | Default  | Description 
+  | Input                 | Default <br> _(`-` = empty string)_  | Description 
   |-----------------------|:--------:|-------------
   | `spec`  _(required)_  | -        | Path of your `.py` or `.spec` file
   | `requirements`        | -        | Path of your `requirements.txt` file
@@ -65,17 +64,13 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `exe_path`            | ./dist   | Path on runner-os, where generated executable files are stored
   | `upload_exe_with_name`| -        | If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
 
-  **\*** `-` in default value = empty string
-
 ### 💠 Available Outputs
-
   | Output                | Description 
   |-----------------------|-------------
   | `executable_path`     | Path on runner-os, where generated executable files are stored
   | `is_uploaded`         | `true`, if packaged executable has been uploaded as artifact
 
 ### 💠 Supported [Pyinstaller options](https://pyinstaller.org/en/stable/usage.html#options)
-
   | For `.py`         | For `.py`                               | For `.py`                               | For `.spec`
   |-------------------|-----------------------------------------|-----------------------------------------|------------
   | `--uac-admin`     | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`                   | `--ascii`,  `-a`
