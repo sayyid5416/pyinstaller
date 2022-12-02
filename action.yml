@@ -27,10 +27,10 @@ inputs:
     description: specific python version you want to use
     default: '3.10'
   exe_path:
-    description: path where generated executable will be saved, on runner-os
+    description: Path on runner-os, where generated executable files are stored
     default: './dist'
   upload_exe_with_name:
-    description: If passed, executable will be uploaded with this name as artifact. Else, artifact won't be uploaded.
+    description: If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
     default: ''
 
 outputs:
