@@ -42,6 +42,29 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
   - Some **inputs** are **required**, while rest are optional. 
   - Check all inputs & outputs [here](/action.yml).
+  - Some important options are also available:
+    - Provide these options in inputs as `options: -D, -a, --noconsole` etc
+    - Read about them [here](https://pyinstaller.org/en/stable/usage.html#options)
+    - Options to work with `spec=<name>.py` file:
+      - `--uac-admin`,
+      - `--uac-uiaccess`,
+      - `--noupx`,
+      
+      - `--onedir`,                         `-D`,
+      - `--onefile`,                        `-F`,
+      - `--ascii`,                          `-a`,
+      - `--console`,    `--nowindowed`,     `-c`,
+      - `--windowed`,   `--noconsole`,      `-w`,
+      
+      - `--upx-dir UPX_DIR`,
+      - `--key KEY`,
+      - `--upx-exclude FILE`,
+
+      - `--name NAME`,                      `-n NAME`,
+      - `--icon FILEICON`,                  `-i FILEICON`,
+    - Options to work with `spec=<name>.spec` file:
+      - `--ascii`,                          `-a`,
+      - `--upx-dir UPX_DIR`,
 
 <br>
 

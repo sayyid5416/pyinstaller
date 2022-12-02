@@ -17,6 +17,12 @@ inputs:
   requirements:
     description: path of your requirements.txt file
     default: ''
+  options:
+    description: > 
+      Options to set for pyinstaller command
+      Ex: options: '--onedir, -F'       (seperated by comma and space)
+        - Supported options: Check readme
+    default: ''
   python_ver:
     description: specific python version you want to use
     default: '3.10'
@@ -48,7 +54,7 @@ runs:
         spec: ${{ inputs.spec }}
         upload_exe_with_name: ${{ inputs.upload_exe_with_name }}
     
-    - name: Setting modified outputs
+    - name: (Set) modified outputs
       id: mods
       shell: bash
       run: python "${{ github.action_path }}/src/mods.py"
