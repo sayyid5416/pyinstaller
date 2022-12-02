@@ -39,11 +39,11 @@ specOptions = [
     '--upx-dir UPX_DIR',
 ]
 
-# Supported options w/o values
+# Keys of Supported options (w/o values)
 pyOptions_keys = [i.split()[0] for i in pyOptions]
 specOptions_keys = [i.split()[0] for i in specOptions]
 
-# Distinguishing provided options -> into supported & unsupported options
+# Distinguish provided options -> into supported & unsupported options
 supported_options = []
 unsupported_options = []
 for option in providedOptions:
