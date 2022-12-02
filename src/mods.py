@@ -71,9 +71,29 @@ if unsupported_options:
     )
 
 
+def get_option_value(option:str):
+    """ Returns: Value of `option` from provided options (if available) """
+    for i in supported_options: 
+        iList = i.split(maxsplit=1)
+        
+        if len(iList) < 2:
+            continue
+        
+        key, value, *_ = iList
+        if key == option:
+            return value
 
 
 
 ## ---------------------- Spec Name ---------------------- ##
 _specName = str(specName)
+
+# If "--name" option is specified in options
+specfiedName = get_option_value('-n') or get_option_value('--name')
+if specfiedName:
+    _specName = os.path.join(
+        os.path.split(_specName)[0],                                                #path w/o filename
+        specfiedName                                                                #new filename
+    )                                                                               #new path of spec file
+
 set_output('spec_name', _specName)
