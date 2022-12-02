@@ -44,8 +44,8 @@ pyOptions_keys = [i.split()[0] for i in pyOptions]
 specOptions_keys = [i.split()[0] for i in specOptions]
 
 # Distinguish provided options -> into supported & unsupported options
-supported_options = []
-unsupported_options = []
+supported_options :list[str] = []
+unsupported_options :list[str] = []
 for option in providedOptions:
     option_key = option.split()[0]
     if bool(option_key in pyOptions_keys and specExt == '.py') or \
