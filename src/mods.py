@@ -54,13 +54,21 @@ for option in providedOptions:
     else:
         unsupported_options.append(option)
 
-## Supported options -> OUTPUT
+## Supported options -> OUTPUT -> NOTICE
 if supported_options:
+    set_output('supported_options', ' '.join(supported_options))
     set_annotation(
         f"Options setted for '{specExt}' spec type: {', '.join(supported_options)}",
         'Pyinstaller Options'
     )
-    set_output('supported_options', ' '.join(supported_options))
+
+## Unsupported options -> WARNING
+if unsupported_options:
+    set_annotation(
+        f"Unsupported options found for '{specExt}' spec type: {', '.join(unsupported_options)}",
+        'Pyinstaller Options',
+        'warning'
+    )
 
 
 
