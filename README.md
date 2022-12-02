@@ -24,13 +24,13 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
 ### 💠 .py and .spec support
   - You can use either `.py` or `.spec` file to create the executable.
-  - Specify it in `inputs.spec: <file.py/file.spec>`
+  - Specify it in `inputs.spec: <file.py/file.spec>`.
   - When `.py` file is used, generated `.spec` file will also be uploaded as artifact.
   - Modify your `.spec` file according to your needs.
 
-### Third party modules
+### 💠 Third party modules
   - Write your third party modules in a file _(Ex: `requirements.txt`)_ , and
-  - Use `inputs.requirements: <path-to-your-requirement-file>`
+  - Use `inputs.requirements: <path-to-your-requirement-file>`.
 
 ### 💠 Pyinstaller options
   - Specify pyinstaller options in `inputs.options: <comma-seperated-options-here>`.
@@ -39,12 +39,12 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 
 ### 💠 Python versions
   - You can specify any python version for the executable.
-  - Specify specific python-version in `inputs.python_ver: <python-version-here>`
+  - Specify specific python-version in `inputs.python_ver: <python-version-here>`.
 
 ### 💠 Executable uploads
   - You can control if generated executable needs to be uploaded as artifact.
   - You can choose a name of your liking.
-  - Speify the artifact name in `inputs.upload_exe_with_name: <name-here>`
+  - Specify the artifact name in `inputs.upload_exe_with_name: <name-here>`.
 
 
 <br>
