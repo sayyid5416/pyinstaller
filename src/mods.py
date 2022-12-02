@@ -43,6 +43,16 @@ specOptions = [
 pyOptions_keys = [i.split()[0] for i in pyOptions]
 specOptions_keys = [i.split()[0] for i in specOptions]
 
+# Distinguishing provided options -> into supported & unsupported options
+supported_options = []
+unsupported_options = []
+for option in providedOptions:
+    option_key = option.split()[0]
+    if bool(option_key in pyOptions_keys and specExt == '.py') or \
+        bool(option_key in specOptions_keys and specExt == '.spec'):
+            supported_options.append(option)
+    else:
+        unsupported_options.append(option)
 
 
 
