@@ -65,28 +65,31 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `requirements`        | -        | Path of your `requirements.txt` file
   | `options`             | -        | Options to set for pyinstaller command
   | `python_ver`          | 3.10     | Specific python version you want to use
-  | `exe_path`            | ./dist   | Path on runner-os, where generated executable files are stored
-  | `upload_exe_with_name`| -        | If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
+  | `exe_path`            | ./dist   | Path on runner-os, where executable will be stored
+  | `upload_exe_with_name`| -        | Upload exe_ artifact with this name. Else, it won't upload
 
 <br>
 
 ### 💠 Available Outputs
   | Output                | Description 
   |-----------------------|-------------
-  | `executable_path`     | Path on runner-os, where generated executable files are stored
+  | `executable_path`     | Path on runner-os, where executable will be stored
   | `is_uploaded`         | `true`, if packaged executable has been uploaded as artifact
 
 <br>
 
 ### 💠 Supported [Pyinstaller options](https://pyinstaller.org/en/stable/usage.html#options)
-  | For `.py`         | For `.py`                               | For `.py`                               | For `.spec`
-  |-------------------|-----------------------------------------|-----------------------------------------|------------
-  | `--uac-admin`     | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`                   | `--ascii`,  `-a`
-  | `--uac-uiaccess`  | `--onefile`,                       `-F` | `--key <KEY>`                           | `--upx-dir <UPX_DIR>`
-  | `--noupx`         | `--ascii`,                         `-a` | `--upx-exclude <FILE>`                  |
-  |                   | `--console`,    `--nowindowed`,    `-c` | `--name <NAME>`,        `-n <NAME>`     |
-  |                   | `--windowed`,   `--noconsole`,     `-w` | `--icon <FILEICON>`,    `-i <FILEICON>` |
-    
+ | For `.py`                               | For `.py`                               | For `.spec`
+ |-----------------------------------------|-----------------------------------------|------------
+ | `--uac-admin`                           | `--name <NAME>`,        `-n <NAME>`     | `--ascii`,  `-a`
+ | `--uac-uiaccess`                        | `--icon <FILEICON>`,    `-i <FILEICON>` | `--upx-dir <UPX_DIR>`
+ | `--noupx`                               | `--key <KEY>`                           | 
+ | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`                   |
+ | `--onefile`,                       `-F` | `--upx-exclude <FILE>`                  |
+ | `--ascii`,                         `-a` 
+ | `--console`,    `--nowindowed`,    `-c` 
+ | `--windowed`,   `--noconsole`,     `-w` 
+
 
 <br>
 <br>
