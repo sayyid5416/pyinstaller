@@ -17,14 +17,20 @@ inputs:
   requirements:
     description: path of your requirements.txt file
     default: ''
+  options:
+    description: > 
+      Options to set for pyinstaller command
+      Ex: options: '--onedir, -F'       (seperated by comma and space)
+        - Supported options: Check readme
+    default: ''
   python_ver:
     description: specific python version you want to use
     default: '3.10'
   exe_path:
-    description: path where generated executable will be saved, on runner-os
+    description: Path on runner-os, where generated executable files are stored
     default: './dist'
   upload_exe_with_name:
-    description: If passed, executable will be uploaded with this name as artifact. Else, artifact won't be uploaded.
+    description: If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
     default: ''
 
 outputs:
@@ -48,12 +54,13 @@ runs:
         spec: ${{ inputs.spec }}
         upload_exe_with_name: ${{ inputs.upload_exe_with_name }}
     
-    - name: Setting modified outputs
+    - name: (Set) modified outputs
       id: mods
       shell: bash
       run: python "${{ github.action_path }}/src/mods.py"
       env:
         spec: ${{ inputs.spec }}
+        options: ${{ inputs.options }}
     
     - name: Checkout
       uses: actions/checkout@v3
@@ -83,6 +90,7 @@ runs:
           --clean \
           --noconfirm \
           --dist ${{ inputs.exe_path }} \
+          ${{ steps.mods.outputs.supported_options }} \
           "${{ inputs.spec }}"
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY

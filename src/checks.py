@@ -1,20 +1,5 @@
-import os
-from typing import Literal
+from actions import *
 
-
-def env(name:str, _def=''):
-    return os.environ.get(name, _def)
-
-
-def set_annotation(
-    message:str,
-    title:str=None,
-    _type:Literal['debug', 'notice', 'warning', 'error']='notice',
-):
-    title = f' title={title}' if title else ''
-    print(f'::{_type}{title}::{message}')
-    if _type == 'error':
-        exit(1)
 
 
 
