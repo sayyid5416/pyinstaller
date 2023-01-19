@@ -8,8 +8,12 @@ options = env('options')
 
 
 # Minor parsing
-specName, specExt = os.path.splitext(spec)                                          # spec-name-with-path & spec-extension 
-providedOptions = [i.strip() for i in options.split(',') if i.strip() != '']        # list of provided options
+specName, specExt = os.path.splitext(
+    spec
+)                                                                                   # spec-name-with-path & spec-extension 
+providedOptions = [
+    i.strip() for i in options.split(',') if i.strip() != ''
+]                                                                                   # list of provided options
 
 
 
@@ -40,8 +44,12 @@ specOptions = [
 ]
 
 # Keys of Supported options (w/o values)
-pyOptions_keys = [i.split()[0] for i in pyOptions]
-specOptions_keys = [i.split()[0] for i in specOptions]
+pyOptions_keys = [
+    i.split()[0] for i in pyOptions
+]
+specOptions_keys = [
+    i.split()[0] for i in specOptions
+]
 
 # Distinguish provided options -> into supported & unsupported options
 supported_options :list[str] = []
@@ -50,13 +58,22 @@ for option in providedOptions:
     option_key = option.split()[0]
     if bool(option_key in pyOptions_keys and specExt == '.py') or \
         bool(option_key in specOptions_keys and specExt == '.spec'):
-            supported_options.append(option)
+            supported_options.append(
+                option
+            )
     else:
-        unsupported_options.append(option)
+        unsupported_options.append(
+            option
+        )
 
 ## Supported options -> OUTPUT -> NOTICE
 if supported_options:
-    set_output('supported_options', ' '.join(supported_options))
+    set_output(
+        'supported_options',
+        ' '.join(
+            supported_options
+        )
+    )
     set_annotation(
         f"Options setted for '{specExt}' spec type: {', '.join(supported_options)}",
         'Pyinstaller Options'
@@ -74,14 +91,18 @@ if unsupported_options:
 def get_option_value(option:str):
     """ Returns: Value of `option` from provided options (if available) """
     for i in supported_options: 
-        iList = i.split(maxsplit=1)
-        
+        iList = i.split(
+            maxsplit=1
+        )
         if len(iList) < 2:
             continue
-        
         key, value, *_ = iList
         if key == option:
-            return value.removeprefix('"').removeprefix("'").removesuffix('"').removesuffix("'")
+            return value.strip(
+                '"'
+            ).strip(
+                "'"
+            )
 
 
 
@@ -92,8 +113,13 @@ _specName = str(specName)
 specfiedName = get_option_value('-n') or get_option_value('--name')
 if specfiedName:
     _specName = os.path.join(
-        os.path.split(_specName)[0],                                                #path w/o filename
+        os.path.split(
+            _specName
+        )[0],                                                                       #path w/o filename
         specfiedName                                                                #new filename
     )                                                                               #new path of spec file
 
-set_output('spec_name', _specName)
+set_output(
+    'spec_name',
+    _specName
+)

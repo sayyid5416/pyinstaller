@@ -19,7 +19,10 @@ if not spec:
     )
 
 # If passed inputs are not supported -> ERROR
-supported_spec = ('.py', '.spec')
+supported_spec = (
+    '.py',
+    '.spec'
+)
 if not spec.endswith(supported_spec):
     set_annotation(
         f"Unsupported input 'spec = {spec}' was provided. Supported types: {', '.join(supported_spec)}",

@@ -4,10 +4,13 @@ from typing import Literal
 
 def env(name:str, _def=''):
     """ Returns environment variable """
-    return os.environ.get(name, _def)
+    return os.environ.get(
+        name,
+        _def
+    )
 
 
-#-bug: Previous step annotations are being overwritten
+# BUG: Previous step annotations are being overwritten
 def set_annotation(
     message:str,
     title:str='',
@@ -29,4 +32,6 @@ def set_output(key:str, value:str):
     - Using `key=value`
     """
     with open(env('GITHUB_OUTPUT'), 'a') as f:
-        f.write(f'{key}={value}\n')
+        f.write(
+            f'{key}={value}\n'
+        )
