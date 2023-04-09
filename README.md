@@ -65,6 +65,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `requirements`        | -        | Path of your `requirements.txt` file
   | `options`             | -        | Options to set for pyinstaller command
   | `python_ver`          | 3.10     | Specific python version you want to use
+  | `python_arch`         | x64      | Specific python architecture you want to use
   | `exe_path`            | ./dist   | Path on runner-os, where executable will be stored
   | `upload_exe_with_name`| -        | Upload exe_ artifact with this name. Else, it won't upload
 

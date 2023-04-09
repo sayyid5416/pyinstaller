@@ -26,6 +26,9 @@ inputs:
   python_ver:
     description: specific python version you want to use
     default: '3.10'
+  python_arch:
+    description: specific python architecture you want to use
+    default: 'x64'
   exe_path:
     description: Path on runner-os, where generated executable files are stored
     default: './dist'
@@ -69,6 +72,7 @@ runs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python_ver }}
+        architecture: ${{ inputs.python_arch }}
     
     - name: (Install) python dev tools
       shell: bash
@@ -95,6 +99,7 @@ runs:
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
         echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
+        echo "  - Python architecture used: '${{ inputs.python_arch }}'" >> $GITHUB_STEP_SUMMARY
 
     - name: (Upload) Executable
       id: artifact_upload
