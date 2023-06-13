@@ -87,8 +87,8 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
  | `--noupx`                               | `--key <KEY>`                           | 
  | `--onedir`,                        `-D` | `--upx-dir <UPX_DIR>`                   |
  | `--onefile`,                       `-F` | `--upx-exclude <FILE>`                  |
- | `--ascii`,                         `-a` 
- | `--console`,    `--nowindowed`,    `-c` 
+ | `--ascii`,                         `-a` | `--add-data <SRC;DEST or SRC:DEST>`     |
+ | `--console`,    `--nowindowed`,    `-c` | `--add-binary <SRC;DEST or SRC:DEST>`   |
  | `--windowed`,   `--noconsole`,     `-w` 
 
 
