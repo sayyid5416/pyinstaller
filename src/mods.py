@@ -35,6 +35,9 @@ pyOptions = [
     '--upx-dir <UPX_DIR>',
     '--upx-exclude <FILE>',
 
+    '--add-data <SRC;DEST or SRC:DEST>',
+    '--add-binary <SRC;DEST or SRC:DEST>',
+
     '--name <NAME>',                    '-n <NAME>',
     '--icon <FILEICON>',                '-i <FILEICON>',
 ]
