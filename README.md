@@ -89,7 +89,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
  | `--onefile`,                       `-F` | `--upx-exclude <FILE>`                  |
  | `--ascii`,                         `-a` | `--add-data <SRC;DEST or SRC:DEST>`     |
  | `--console`,    `--nowindowed`,    `-c` | `--add-binary <SRC;DEST or SRC:DEST>`   |
- | `--windowed`,   `--noconsole`,     `-w` 
+ | `--windowed`,   `--noconsole`,     `-w` | `--collect-data <MODULENAME>`
 
 
 <br>
