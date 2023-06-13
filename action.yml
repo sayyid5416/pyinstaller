@@ -1,5 +1,5 @@
-name: Versatile PyInstaller
-author: '@sayyid5416'
+name: PyInstaller Action
+author: '@Martin005'
 description: GitHub Action to package python scripts into executables
 branding: 
   icon: hard-drive
