@@ -37,6 +37,7 @@ pyOptions = [
 
     '--add-data <SRC;DEST or SRC:DEST>',
     '--add-binary <SRC;DEST or SRC:DEST>',
+    '--collect-data <MODULENAME>',
 
     '--name <NAME>',                    '-n <NAME>',
     '--icon <FILEICON>',                '-i <FILEICON>',
