@@ -1,5 +1,5 @@
-name: PyInstaller Action
-author: '@Martin005'
+name: PyInstaller-Nac
+author: '@Nackophilz'
 description: GitHub Action to package python scripts into executables
 branding: 
   icon: hard-drive
