@@ -113,3 +113,11 @@ jobs:
           upload_exe_with_name: 'My executable'
           options: --onefile, --name "My App", --windowed, 
 ```
+
+
+<br>
+<br>
+<br>
+
+
+# 🔰 Main Repository : [sayyid5416/pyinstaller](https://github.com/sayyid5416/pyinstaller)
