@@ -24,7 +24,6 @@ pyOptions = [
     '--uac-admin',
     '--uac-uiaccess',
     '--noupx',
-    '--noconfirm',                      '-y',
     
     '--onedir',                         '-D',
     '--onefile',                        '-F',
