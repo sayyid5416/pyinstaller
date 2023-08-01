@@ -1,5 +1,5 @@
-name: PyInstaller-Nac
-author: '@Nackophilz'
+name: Versatile PyInstaller
+author: '@sayyid5416'
 description: GitHub Action to package python scripts into executables
 branding: 
   icon: hard-drive
