@@ -93,7 +93,7 @@ runs:
         pyinstaller \
           --clean \
           --noconfirm \
-          --distpath ${{ inputs.exe_path }} \
+          --dist ${{ inputs.exe_path }} \
           ${{ steps.mods.outputs.supported_options }} \
           "${{ inputs.spec }}"
         
