@@ -35,6 +35,11 @@ pyOptions = [
     '--upx-dir <UPX_DIR>',
     '--upx-exclude <FILE>',
 
+    '--add-data <SRC;DEST or SRC:DEST>',
+    '--add-binary <SRC;DEST or SRC:DEST>',
+    '--collect-data <MODULENAME>',
+    '--collect-all <MODULENAME>',
+
     '--name <NAME>',                    '-n <NAME>',
     '--icon <FILEICON>',                '-i <FILEICON>',
 ]
@@ -89,21 +94,14 @@ if unsupported_options:
 
 
 def get_option_value(option:str):
-    """ Returns: Value of `option` from provided options (if available) """
+    """ Returns: Value of `option` from provided options """
     for i in supported_options: 
-        iList = i.split(
-            maxsplit=1
-        )
+        iList = i.split(maxsplit=1)
         if len(iList) < 2:
             continue
         key, value, *_ = iList
         if key == option:
-            return value.strip(
-                '"'
-            ).strip(
-                "'"
-            )
-
+            return value.strip('"').strip("'")
 
 
 ## ---------------------- Spec Name ---------------------- ##
