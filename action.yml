@@ -77,6 +77,8 @@ runs:
     
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        clean: false
     
     - name: (Install) dependencies
       if: inputs.requirements != ''
