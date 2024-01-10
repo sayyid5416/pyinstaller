@@ -39,9 +39,10 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   - `.py` and `.spec` both supports different kind of options.
   - Check list of all [supported options here](#-supported-pyinstaller-options).
 
-### 💠 Python versions
+### 💠 Python and Pyinstaller versions
   - You can specify any python version for the executable.
   - Specify specific python-version in `inputs.python_ver: <python-version-here>`.
+  - Specify specific pyinstaller-version in `inputs.pyinstaller_ver: <pyinstaller-version-here-with-proper-signs, like '==5.13.2'>`.
 
 ### 💠 Executable uploads
   - You can control if generated executable needs to be uploaded as artifact.
@@ -66,6 +67,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `options`             | -        | Options to set for pyinstaller command
   | `python_ver`          | 3.10     | Specific python version you want to use
   | `python_arch`         | x64      | Specific python architecture you want to use
+  | `pyinstaller_ver`     | -        | Specific pyinstaller version you want to use *(with proper signs, like `==5.13.2`)*
   | `exe_path`            | ./dist   | Path on runner-os, where executable will be stored
   | `upload_exe_with_name`| -        | Upload exe_ artifact with this name. Else, it won't upload
 
@@ -109,6 +111,7 @@ jobs:
         uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.6'
+          pyinstaller_ver: '==5.13.2'
           spec: 'src/build.spec'
           requirements: 'src/requirements.txt'
           upload_exe_with_name: 'My executable'
