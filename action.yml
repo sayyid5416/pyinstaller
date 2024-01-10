@@ -88,7 +88,7 @@ runs:
 
     - name: (Install) pyinstaller
       shell: bash
-      run: pip install pyinstaller${{ inputs.python_ver }}
+      run: pip install pyinstaller${{ inputs.pyinstaller_ver }}
     
     - name: (Create) Executable
       shell: bash
