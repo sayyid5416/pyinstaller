@@ -29,6 +29,9 @@ inputs:
   python_arch:
     description: specific python architecture you want to use
     default: 'x64'
+  pyinstaller_ver:
+    description: specific pyinstaller version you want to use
+    default: ''
   exe_path:
     description: Path on runner-os, where generated executable files are stored
     default: './dist'
@@ -87,7 +90,7 @@ runs:
 
     - name: (Install) pyinstaller
       shell: bash
-      run: pip install pyinstaller
+      run: pip install pyinstaller${{ inputs.pyinstaller_ver }}
     
     - name: (Create) Executable
       shell: bash
