@@ -38,6 +38,9 @@ inputs:
   upload_exe_with_name:
     description: If passed, uploads executable artifact  with this name. Else, artifact won't be uploaded.
     default: ''
+  clean_checkout:
+    description: 'If true, perform a clean checkout; if false, skip cleaning. Cleaning will remove all existing local files not in the repository during checkout. If you use utilities like pyinstaller-versionfile, set this to false.'
+    default: false
 
 outputs:
   executable_path:
@@ -81,7 +84,7 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        clean: false
+        clean: ${{ inputs.clean_checkout }}
     
     - name: (Install) dependencies
       if: inputs.requirements != ''
