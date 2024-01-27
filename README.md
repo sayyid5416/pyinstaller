@@ -70,6 +70,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `pyinstaller_ver`     | -        | Specific pyinstaller version you want to use *(with proper signs, like `==5.13.2`)*
   | `exe_path`            | ./dist   | Path on runner-os, where executable will be stored
   | `upload_exe_with_name`| -        | Upload exe_ artifact with this name. Else, it won't upload
+  | `clean_checkout`      | false    | If true, perform a clean checkout; if false, skip cleaning. Cleaning will remove all existing local files not in the repository during checkout. If you use utilities like pyinstaller-versionfile, set this to false.
 
 <br>
 
