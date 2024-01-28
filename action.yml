@@ -1,6 +1,6 @@
 name: Versatile PyInstaller
 author: '@sayyid5416'
-description: GitHub Action to package python scripts into executables
+description: Customisable GitHub Action to package python scripts into executables for different OS's
 branding: 
   icon: hard-drive
   color: yellow
