@@ -1,4 +1,5 @@
 from actions import *
+from typing import List
 
 
 
@@ -57,8 +58,8 @@ specOptions_keys = [
 ]
 
 # Distinguish provided options -> into supported & unsupported options
-supported_options :list[str] = []
-unsupported_options :list[str] = []
+supported_options: List[str] = []
+unsupported_options: List[str] = []
 for option in providedOptions:
     option_key = option.split()[0]
     if bool(option_key in pyOptions_keys and specExt == '.py') or \
@@ -93,7 +94,7 @@ if unsupported_options:
     )
 
 
-def get_option_value(option:str):
+def get_option_value(option: str):
     """ Returns: Value of `option` from provided options """
     for i in supported_options: 
         iList = i.split(maxsplit=1)

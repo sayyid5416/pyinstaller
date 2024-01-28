@@ -2,7 +2,7 @@ import os
 from typing import Literal
 
 
-def env(name:str, _def=''):
+def env(name: str, _def=''):
     """ Returns environment variable """
     return os.environ.get(
         name,
@@ -10,11 +10,11 @@ def env(name:str, _def=''):
     )
 
 
-# BUG: Previous step annotations are being overwritten
+# -BUG: Previous step annotations are being overwritten
 def set_annotation(
-    message:str,
-    title:str='',
-    _type:Literal['debug', 'notice', 'warning', 'error']='notice',
+    message: str,
+    title: str='',
+    _type: Literal['debug', 'notice', 'warning', 'error']='notice',
 ):
     """
     Sets annotation with `message` text
@@ -27,7 +27,7 @@ def set_annotation(
         exit(1)
 
 
-def set_output(key:str, value:str):
+def set_output(key: str, value: str):
     """ Sets the output to `$GITHUB_OUTPUT` file
     - Using `key=value`
     """
