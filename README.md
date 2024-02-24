@@ -64,7 +64,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   |-----------------------|:--------:|-------------
   | `spec`  _(required)_  | -        | Path of your `.py` or `.spec` file
   | `requirements`        | -        | Path of your `requirements.txt` file
-  | `options`             | -        | Options to set for pyinstaller command
+  | `options`             | -        | [Options](#-supported-pyinstaller-options) to set for pyinstaller command
   | `python_ver`          | 3.10     | Specific python version you want to use
   | `python_arch`         | x64      | Specific python architecture you want to use
   | `pyinstaller_ver`     | -        | Specific pyinstaller version you want to use *(with proper signs, like `==5.13.2`)*
