@@ -57,7 +57,7 @@ runs:
   steps:
 
     - name: (Install) python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python_ver }}
         architecture: ${{ inputs.python_arch }}
@@ -82,7 +82,7 @@ runs:
         options: ${{ inputs.options }}
     
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         clean: ${{ inputs.clean_checkout }}
     
@@ -112,14 +112,14 @@ runs:
     - name: (Upload) Executable
       id: artifact_upload
       if: inputs.upload_exe_with_name != ''
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
     
     - name: (Upload) generated spec file - if .py
       if: endsWith(inputs.spec, '.py')
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Generated spec file
         path: ${{ steps.mods.outputs.spec_name }}.spec
