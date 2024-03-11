@@ -41,6 +41,10 @@ inputs:
   clean_checkout:
     description: 'If true, perform a clean checkout; if false, skip cleaning. Cleaning will remove all existing local files not in the repository during checkout. If you use utilities like pyinstaller-versionfile, set this to false.'
     default: true
+  compression_level:
+    description: 'Level of compression for archive (between 0 and 9). 0 = No compression, 9 = Max compression.'
+    default: 6
+
 
 outputs:
   executable_path:
@@ -116,6 +120,7 @@ runs:
       with:
         name: ${{ inputs.upload_exe_with_name }}
         path: ${{ inputs.exe_path }}
+        compression-level: ${{ inputs.compression_level }}
     
     - name: (Upload) generated spec file - if .py
       if: endsWith(inputs.spec, '.py')
