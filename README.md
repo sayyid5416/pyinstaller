@@ -72,6 +72,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `exe_path`            | ./dist   | Path on runner-os, where executable will be stored
   | `upload_exe_with_name`| -        | Upload exe_ artifact with this name. Else, it won't upload
   | `clean_checkout`      | true     | If true, perform a clean checkout; if false, skip cleaning. Cleaning will remove all existing local files not in the repository during checkout. If you use utilities like pyinstaller-versionfile, set this to false.
+  | `lfs`                 | false    | Whether to download Git-LFS files (passed to `lfs` option in actions/checkout step)
   | `compression_level`   | 6        | Level of compression for archive. <br>Range: 0 and 9. <br>_(0 = No compression, 9 = Max compression)_.
 
 <br>

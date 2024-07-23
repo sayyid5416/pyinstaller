@@ -41,6 +41,9 @@ inputs:
   clean_checkout:
     description: 'If true, perform a clean checkout; if false, skip cleaning. Cleaning will remove all existing local files not in the repository during checkout. If you use utilities like pyinstaller-versionfile, set this to false.'
     default: true
+  lfs:
+    description: Whether to download Git-LFS files (passed to actions/checkout)
+    default: false
   compression_level:
     description: 'Level of compression for archive (between 0 and 9). 0 = No compression, 9 = Max compression.'
     default: 6
@@ -89,6 +92,7 @@ runs:
       uses: actions/checkout@v4
       with:
         clean: ${{ inputs.clean_checkout }}
+        lfs: ${{ inputs.lfs }}
     
     - name: (Install) dependencies
       if: inputs.requirements != ''
