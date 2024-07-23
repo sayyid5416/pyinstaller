@@ -92,7 +92,7 @@ runs:
       uses: actions/checkout@v4
       with:
         clean: ${{ inputs.clean_checkout }}
-        lfs: ${{ input.lfs }}
+        lfs: ${{ inputs.lfs }}
     
     - name: (Install) dependencies
       if: inputs.requirements != ''
