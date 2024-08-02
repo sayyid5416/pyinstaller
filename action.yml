@@ -130,7 +130,7 @@ runs:
       if: endsWith(inputs.spec, '.py')
       uses: actions/upload-artifact@v4
       with:
-        name: Generated spec file
+        name: Generated spec file ${{ inputs.upload_exe_with_name }}
         path: ${{ steps.mods.outputs.spec_name }}.spec
 
     - name: If executable upload success
