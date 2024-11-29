@@ -1,5 +1,6 @@
 from actions import *
 from typing import List
+import os
 
 
 
@@ -9,9 +10,7 @@ options = env('options')
 
 
 # Minor parsing
-specPath, specExt = os.path.splitext(
-    spec
-)                                                                                   # spec-name-with-path & spec-extension 
+specPath, specExt = os.path.splitext(spec)                                          # spec-name-with-path & spec-extension 
 providedOptions = [
     i.strip() for i in options.split(',') if i.strip() != ''
 ]                                                                                   # list of provided options
@@ -65,21 +64,15 @@ for option in providedOptions:
     option_key = option.split()[0]
     if bool(option_key in pyOptions_keys and specExt == '.py') or \
         bool(option_key in specOptions_keys and specExt == '.spec'):
-            supported_options.append(
-                option
-            )
+            supported_options.append(option)
     else:
-        unsupported_options.append(
-            option
-        )
+        unsupported_options.append(option)
 
 ## Supported options -> OUTPUT -> NOTICE
 if supported_options:
     set_output(
         'supported_options',
-        ' '.join(
-            supported_options
-        )
+        ' '.join(supported_options)
     )
     set_annotation(
         f"Options setted for '{specExt}' spec type: {', '.join(supported_options)}",
