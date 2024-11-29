@@ -9,9 +9,7 @@ options = env('options')
 
 
 # Minor parsing
-specName, specExt = os.path.splitext(
-    spec
-)                                                                                   # spec-name-with-path & spec-extension 
+specPath, specExt = os.path.splitext(spec)                                          # spec-name-with-path & spec-extension 
 providedOptions = [
     i.strip() for i in options.split(',') if i.strip() != ''
 ]                                                                                   # list of provided options
@@ -65,21 +63,15 @@ for option in providedOptions:
     option_key = option.split()[0]
     if bool(option_key in pyOptions_keys and specExt == '.py') or \
         bool(option_key in specOptions_keys and specExt == '.spec'):
-            supported_options.append(
-                option
-            )
+            supported_options.append(option)
     else:
-        unsupported_options.append(
-            option
-        )
+        unsupported_options.append(option)
 
 ## Supported options -> OUTPUT -> NOTICE
 if supported_options:
     set_output(
         'supported_options',
-        ' '.join(
-            supported_options
-        )
+        ' '.join(supported_options)
     )
     set_annotation(
         f"Options setted for '{specExt}' spec type: {', '.join(supported_options)}",
@@ -106,20 +98,17 @@ def get_option_value(option: str):
             return value.strip('"').strip("'")
 
 
-## ---------------------- Spec Name ---------------------- ##
-_specName = str(specName)
+_specPath = str(specPath)
 
 # If "--name" option is specified in options
 specfiedName = get_option_value('-n') or get_option_value('--name')
 if specfiedName:
-    _specName = os.path.join(
-        os.path.split(
-            _specName
-        )[0],                                                                       #path w/o filename
+    _specPath = os.path.join(
+        os.path.split(_specPath)[0],                                                #path w/o filename
         specfiedName                                                                #new filename
     )                                                                               #new path of spec file
 
 set_output(
     'spec_name',
-    _specName
+    os.path.basename(_specPath)
 )
