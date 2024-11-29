@@ -97,6 +97,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
  | `--console`,    `--nowindowed`,    `-c` | `--add-binary <SRC;DEST or SRC:DEST>`   |
  | `--windowed`,   `--noconsole`,     `-w` | `--collect-data <MODULENAME>`           |
  |                                         | `--collect-all <MODULENAME>`            |
+ |                                         | `--version-file <FILE>`                 |
 
 
 <br>
