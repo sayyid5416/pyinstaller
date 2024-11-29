@@ -9,7 +9,7 @@ options = env('options')
 
 
 # Minor parsing
-specName, specExt = os.path.splitext(
+specPath, specExt = os.path.splitext(
     spec
 )                                                                                   # spec-name-with-path & spec-extension 
 providedOptions = [
@@ -106,20 +106,17 @@ def get_option_value(option: str):
             return value.strip('"').strip("'")
 
 
-## ---------------------- Spec Name ---------------------- ##
-_specName = str(specName)
+_specPath = str(specPath)
 
 # If "--name" option is specified in options
 specfiedName = get_option_value('-n') or get_option_value('--name')
 if specfiedName:
-    _specName = os.path.join(
-        os.path.split(
-            _specName
-        )[0],                                                                       #path w/o filename
+    _specPath = os.path.join(
+        os.path.split(_specPath)[0],                                                #path w/o filename
         specfiedName                                                                #new filename
     )                                                                               #new path of spec file
 
 set_output(
     'spec_name',
-    _specName
+    _specPath
 )
