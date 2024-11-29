@@ -1,6 +1,5 @@
 from actions import *
 from typing import List
-import os
 
 
 
@@ -111,5 +110,5 @@ if specfiedName:
 
 set_output(
     'spec_name',
-    _specPath
+    os.path.basename(_specPath)
 )
