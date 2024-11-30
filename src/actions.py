@@ -10,7 +10,6 @@ def env(name: str, _def=''):
     )
 
 
-# -BUG: Previous step annotations are being overwritten
 def set_annotation(
     message: str,
     title: str='',
