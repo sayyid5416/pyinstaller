@@ -117,5 +117,5 @@ set_output(
 ## ---------------------- Spec options ---------------------- ##
 set_output(
     'supported_spec_options',
-    f'-- {spec_options}' if bool(spec_options) else ""
+    f'-- {spec_options}' if isSpecType and bool(spec_options) else ""
 )
