@@ -111,7 +111,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
 ```yaml
 jobs:
   pyinstaller-build:
-    runs-on: <windows-latest / ubuntu-latest / ..... etc>
+    runs-on: #<windows-latest / ubuntu-latest / ..... etc>
     steps:
       - name: Create Executable
         uses: sayyid5416/pyinstaller@v1
@@ -122,7 +122,7 @@ jobs:
           requirements: 'src/requirements.txt'
           upload_exe_with_name: 'My executable'
           options: --onefile, --name "My App", --windowed
-          spec_options: <any custom arguments you want>
+          spec_options: # any custom arguments you want like: `--debug`
 ```
 
 
