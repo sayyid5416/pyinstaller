@@ -23,6 +23,11 @@ inputs:
       Ex: options: '--onedir, -F'       (seperated by comma and space)
         - Supported options: Check readme
     default: ''
+  spec_options:
+    description: > 
+      Custom parameters for spec file. (won't work with .py spec file)
+      Ex: spec_options: '--debug'
+    default: ''
   python_ver:
     description: specific python version you want to use
     default: '3.10'
@@ -87,6 +92,7 @@ runs:
       env:
         spec: ${{ inputs.spec }}
         options: ${{ inputs.options }}
+        spec_options: ${{ inputs.spec_options }}
     
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -111,7 +117,8 @@ runs:
           --noconfirm \
           --dist ${{ inputs.exe_path }} \
           ${{ steps.mods.outputs.supported_options }} \
-          "${{ inputs.spec }}"
+          "${{ inputs.spec }}" \
+          ${{ steps.mods.outputs.supported_spec_options }}
         
         echo "✔️ Executable created successfully at _'${{ inputs.exe_path }}'_" >> $GITHUB_STEP_SUMMARY
         echo "  - Python version used: '${{ inputs.python_ver }}'" >> $GITHUB_STEP_SUMMARY
@@ -130,8 +137,8 @@ runs:
       if: endsWith(inputs.spec, '.py')
       uses: actions/upload-artifact@v4
       with:
-        name: Generated spec file ${{ inputs.upload_exe_with_name }}
-        path: ${{ steps.mods.outputs.spec_name }}.spec
+        name: Generated spec file for ${{ inputs.upload_exe_with_name }}
+        path: ${{ steps.mods.outputs.spec_path }}
 
     - name: If executable upload success
       id: exe_uploading
