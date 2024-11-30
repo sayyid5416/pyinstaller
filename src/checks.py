@@ -9,8 +9,7 @@ upload_exe_with_name = env('upload_exe_with_name')
 
 
 
-""" Checks """
-# If required inputs missing -> ERROR
+# [ERROR] If required inputs missing
 if not spec:
     set_annotation(
         "Required input missing: 'spec'.",
@@ -18,7 +17,8 @@ if not spec:
         'error'
     )
 
-# If passed inputs are not supported -> ERROR
+
+# [ERROR] If passed inputs are not supported
 supported_spec = (
     '.py',
     '.spec'
@@ -30,10 +30,12 @@ if not spec.endswith(supported_spec):
         'error'
     )
 
-# If useful optional arguments missing -> NOTICE
+
+# [WARNING] If useful optional arguments missing
 if not upload_exe_with_name:
     set_annotation(
-        "Executable couldn't upload. Provide input for 'upload_exe_with_name', if you want to upload the executable as artifact.",
-        'No-Upload'
+        "Executable not uploaded. Provide 'upload_exe_with_name' to upload it as an artifact."
+        'No-Upload',
+        'warning'
     )
  
