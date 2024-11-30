@@ -66,6 +66,7 @@ You can also use any major tags like `@v1` for any `@v1.*.*`
   | `spec`  _(required)_  | -        | Path of your `.py` or `.spec` file
   | `requirements`        | -        | Path of your `requirements.txt` file
   | `options`             | -        | [Options](#-supported-pyinstaller-options) to set for pyinstaller command
+  | `spec_options`        | -        | [Custom parameters for the spec file](https://pyinstaller.org/en/v6.0.0/spec-files.html#adding-parameters-to-spec-files)
   | `python_ver`          | 3.10     | Specific python version you want to use
   | `python_arch`         | x64      | Specific python architecture you want to use
   | `pyinstaller_ver`     | -        | Specific pyinstaller version you want to use <br>*(with proper signs, like `==5.13.2`)*
@@ -120,7 +121,8 @@ jobs:
           spec: 'src/build.spec'
           requirements: 'src/requirements.txt'
           upload_exe_with_name: 'My executable'
-          options: --onefile, --name "My App", --windowed, 
+          options: --onefile, --name "My App", --windowed
+          spec_options: <any custom arguments you want>
 ```
 
 
