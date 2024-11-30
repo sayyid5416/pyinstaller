@@ -1,11 +1,14 @@
 from actions import *
 from typing import List
+import os
+import env
 
 
 
 ### ENV
 spec = env('spec')
 options = env('options')
+spec_options = env('spec_options')
 
 
 # Minor parsing
@@ -98,6 +101,8 @@ def get_option_value(option: str):
             return value.strip('"').strip("'")
 
 
+
+## ---------------------- Spec path ---------------------- ##
 _specPath = str(specPath)
 
 # If "--name" option is specified in options
@@ -111,4 +116,12 @@ if specfiedName:
 set_output(
     'spec_name',
     os.path.basename(_specPath)
+)
+
+
+
+## ---------------------- Spec options ---------------------- ##
+set_output(
+    'supported_spec_options',
+    f'-- {spec_options}' if bool(spec_options) else ""
 )
